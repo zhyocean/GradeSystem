@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1 align="center">评分结果</h1>
+<table align="center" width="704" border="1px,solid,#ccc">
+    <tr>
+        <td>项目名称</td>
+        <td>最高分</td>
+        <td>最低分</td>
+        <td>最终得分</td>
+    </tr>
+    <tr>
+        <td th:text="${MarkModel.projectName}">33</td>
+        <td th:text="${MarkModel.markMax}">33</td>
+        <td th:text="${MarkModel.markMin}">33</td>
+        <td th:text="${MarkModel.markFinal}">33</td>
+    </tr>
+    <tr><td colspan="4" align="center">排行榜</td></tr>
+    <tr th:each="marks : ${marksInDB}">
+        <td th:text="${marks.projectName}"></td>
+        <td th:text="${marks.markMax}"></td>
+        <td th:text="${marks.markMin}"></td>
+        <td th:text="${marks.markFinal}"></td>
+    </tr>
+</table>
+<form action="/" method="post">
+    <table>
+        <center><button type="submit">返回</button></center>
+    </table>
+</form>
+</body>
+</html>
